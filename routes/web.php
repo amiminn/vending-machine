@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
-Route::get("/", function () {
-    return Inertia::render("index");
+Route::controller(MainController::class)->group(function () {
+    Route::get("/", "index");
 });
