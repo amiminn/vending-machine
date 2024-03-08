@@ -1,9 +1,5 @@
 <template lang="">
-    <layout>
-        <div v-for="(d, index) in produk" :key="index">
-            {{ d.nama }}
-        </div>
-    </layout>
+    <layout> </layout>
 </template>
 <script>
 import layout from "./layout.vue";
