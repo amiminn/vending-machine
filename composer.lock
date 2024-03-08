@@ -4,8 +4,46 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "84dc38b6f7e91004d2193a25f294a080",
+    "content-hash": "5d017ed3a341197dbda030fe756f4b0f",
     "packages": [
+        {
+            "name": "amiminn/support",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/amiminn/support.git",
+                "reference": "c3adc54fbb8dd6968ff282cbf4d396a8f2f60506"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/amiminn/support/zipball/c3adc54fbb8dd6968ff282cbf4d396a8f2f60506",
+                "reference": "c3adc54fbb8dd6968ff282cbf4d396a8f2f60506",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Amiminn\\Support\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "amiminn",
+                    "email": "tholabul.amin@gmail.com"
+                }
+            ],
+            "description": "laravel support system",
+            "support": {
+                "issues": "https://github.com/amiminn/support/issues",
+                "source": "https://github.com/amiminn/support/tree/master"
+            },
+            "time": "2024-03-08T08:30:49+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.11.0",
@@ -8196,7 +8234,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "amiminn/support": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
