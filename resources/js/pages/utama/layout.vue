@@ -8,7 +8,7 @@
             <header>
                 <div class="rounded-lg m-3">
                     <div class="grid grid-cols-2 p-5 text-white">
-                        <div class="font-extrabold text-3xl">VM Me</div>
+                        <div class="font-extrabold text-3xl game">VM Me</div>
                     </div>
                 </div>
             </header>
@@ -17,22 +17,22 @@
                 <img src="/produk/sprite.png" alt="produk" class="w-2/4" />
             </div>
             <div
-                class="container sm:xl:w-1/3 h-1/2 absolute bottom-0 left-0 right-0 m-auto bg-[#DDDDE4] rounded-t-[42px] p-3"
+                class="container sm:xl:w-1/3 h-1/2 absolute bottom-0 left-0 right-0 m-auto bg-[#DDDDE4] rounded-t-[42px] p-3 ls"
             >
                 <div class="grid grid-rows-4 h-full text-3xl">
-                    <div class="flex justify-center text-slate-600 font-bold">
+                    <div
+                        class="flex justify-center text-4xl mt-3 text-slate-600"
+                    >
                         Sprite
                     </div>
                     <div></div>
-                    <div
-                        class="grid grid-cols-2 gap-2 p-2 font-bold text-slate-600"
-                    >
+                    <div class="grid grid-cols-2 gap-2 p-2 text-slate-600">
                         <div></div>
                         <div></div>
                     </div>
                     <div>
                         <div
-                            class="bg-[#1C1E21] text-white rounded-full h-full font-bold flex items-center justify-between px-10"
+                            class="bg-[#1C1E21] text-white rounded-full h-full flex items-center justify-between px-10"
                         >
                             <div class="">$18.9</div>
                             <div class="rounded-full bg-white">
