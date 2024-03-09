@@ -1,9 +1,14 @@
 import "./bootstrap";
 import "flowbite";
+import "animate.css";
 import { createApp, h } from "vue";
 import { createInertiaApp, Link } from "@inertiajs/vue3";
 import toRupiah from "@develoka/angka-rupiah-js";
 import VueFeather from "vue-feather";
+
+// components
+import HA from "./components/HA.vue";
+import card from "./components/card.vue";
 
 createInertiaApp({
     resolve: (name) => {
@@ -15,11 +20,15 @@ createInertiaApp({
 
         app.component("Link", Link);
         app.component(VueFeather.name, VueFeather);
+        app.component("ha", HA);
+        app.component("card", card);
 
         app.config.globalProperties.$api = {
             auth: {
                 login: "/login",
             },
+            riwayat: "/api/riwayat",
+            produk: "/api/produk",
         };
 
         app.config.globalProperties.$filters = {

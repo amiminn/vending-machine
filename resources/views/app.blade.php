@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍹</text></svg>">
     <title>Vending Machine</title>
+    <!-- Primary Meta Tags -->
+    <title>VendingMachine - Minuman</title>
+    <meta name="title" content="VendingMachine - Minuman" />
+    <meta name="description" content="Hanya tersedia untuk pembayaran non-tunai. ambil satu botol minumanmu dengan sekali scan." />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ env("APP_URL") }}" />
+    <meta property="og:title" content="VendingMachine - Minuman" />
+    <meta property="og:description" content="Hanya tersedia untuk pembayaran non-tunai. ambil satu botol minumanmu dengan sekali scan." />
+    <meta property="og:image" content="/icon/vm.webp" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="{{ env("APP_URL") }}" />
+    <meta property="twitter:title" content="VendingMachine - Minuman" />
+    <meta property="twitter:description" content="Hanya tersedia untuk pembayaran non-tunai. ambil satu botol minumanmu dengan sekali scan." />
+    <meta property="twitter:image" content="/icon/vm.webp" />
+
+<!-- Meta Tags Generated with https://metatags.io -->
     <script>
       window.Laravel = {csrfToken: '{{ csrf_token() }}',app_key : '{{ env("APP_KEY") }}',url : '{{ env("APP_URL") }}'}
       @auth

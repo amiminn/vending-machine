@@ -34,7 +34,7 @@
                         <div
                             class="bg-[#1C1E21] text-white rounded-full h-full flex items-center justify-between px-10"
                         >
-                            <div class="">$18.9</div>
+                            <div class="">Rp 4.300</div>
                             <div class="rounded-full bg-white">
                                 <!-- <vue-feather type="shopping-cart"></vue-feather> -->
                             </div>

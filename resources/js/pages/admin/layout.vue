@@ -16,43 +16,54 @@
             class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
             aria-label="Sidebar"
         >
-            <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50">
+            <div
+                class="h-full px-3 py-4 overflow-y-auto bg-gray-50 text-slate-800"
+            >
                 <div class="py-2 mb-2">
-                    <div class="text-4xl font-bold">🍨 VM</div>
+                    <div class="text-4xl font-bold game text-slate-700">
+                        🍨 VM Me
+                    </div>
                 </div>
+                <hr class="my-2" />
                 <div class="">
                     <ul class="space-y-2 font-medium">
-                        <li class="border-r-4 border-gray-300 pr-1">
-                            <a
-                                href="#"
-                                class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-300 group"
+                        <li :class="{ on: $page.url === '/dashboard' }">
+                            <Link
+                                href="dashboard"
+                                class="flex items-center p-2 rounded-lg hover:bg-gray-300 group"
                             >
                                 <vue-feather type="grid"></vue-feather>
                                 <span class="ms-3">Dashboard</span>
-                            </a>
+                            </Link>
                         </li>
-                        <li>
-                            <a
-                                href="#"
-                                class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-300 group"
+                        <li :class="{ on: $page.url === '/penjualan' }">
+                            <Link
+                                href="penjualan"
+                                class="flex items-center p-2 rounded-lg hover:bg-gray-300 group"
                             >
                                 <vue-feather type="file-text"></vue-feather>
                                 <span class="ms-3">Penjualan</span>
-                            </a>
+                            </Link>
                         </li>
-                        <li>
-                            <a
-                                href="#"
-                                class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-300 group"
+                        <li
+                            :class="{
+                                on:
+                                    $page.url === '/product' ||
+                                    $page.url === '/tambah-product',
+                            }"
+                        >
+                            <Link
+                                href="product"
+                                class="flex items-center p-2 rounded-lg hover:bg-gray-300 group"
                             >
                                 <vue-feather type="coffee"></vue-feather>
                                 <span class="ms-3">Produk</span>
-                            </a>
+                            </Link>
                         </li>
                         <li>
                             <a
                                 href="#"
-                                class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-300 group"
+                                class="flex items-center p-2 rounded-lg hover:bg-gray-300 group"
                             >
                                 <vue-feather type="tablet"></vue-feather>
                                 <span class="ms-3">Simulator</span>
@@ -60,29 +71,27 @@
                         </li>
                     </ul>
                     <ul
-                        class="space-y-2 font-medium fixed inset-x-0 bottom-0 p-2"
+                        class="space-y-2 font-medium absolute inset-x-0 bottom-0 p-2"
                     >
                         <li>
-                            <a
+                            <Link
+                                href="login"
                                 class="flex items-center font-bold p-2 text-rose-400 rounded-lg bg-rose-100 group"
                             >
                                 <vue-feather type="arrow-right"></vue-feather>
                                 <span class="ms-3">Log out</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
             </div>
         </aside>
 
-        <div class="p-4 sm:ml-64">
-            <div class="p-4 border-4 border-gray-200 border-dashed rounded-lg">
-                <slot></slot>
-            </div>
+        <div class="p-4 sm:ml-64 grid gap-3">
+            <slot></slot>
         </div>
     </div>
 </template>
 <script>
 export default {};
 </script>
-<style lang=""></style>
