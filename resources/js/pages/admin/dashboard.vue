@@ -1,7 +1,12 @@
 <template lang="">
-    <div>dashboard</div>
+    <layout>
+        <div>dashboard</div>
+    </layout>
 </template>
 <script>
-export default {};
+import layout from "./layout.vue";
+export default {
+    components: { layout },
+};
 </script>
 <style lang=""></style>

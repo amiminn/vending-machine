@@ -1,7 +1,9 @@
 import "./bootstrap";
+import "flowbite";
 import { createApp, h } from "vue";
 import { createInertiaApp, Link } from "@inertiajs/vue3";
 import toRupiah from "@develoka/angka-rupiah-js";
+import VueFeather from "vue-feather";
 
 createInertiaApp({
     resolve: (name) => {
@@ -10,7 +12,9 @@ createInertiaApp({
     },
     setup({ el, App, props, plugin }) {
         const app = createApp({ render: () => h(App, props) });
+
         app.component("Link", Link);
+        app.component(VueFeather.name, VueFeather);
 
         app.config.globalProperties.$api = {
             auth: {
