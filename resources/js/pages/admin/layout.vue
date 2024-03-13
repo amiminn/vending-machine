@@ -1,5 +1,5 @@
 <template lang="">
-    <div>
+    <div class="bg-[#F5F9FC] h-screen">
         <button
             data-drawer-target="sidebar-multi-level-sidebar"
             data-drawer-toggle="sidebar-multi-level-sidebar"
@@ -17,7 +17,7 @@
             aria-label="Sidebar"
         >
             <div
-                class="h-full px-3 py-4 overflow-y-auto bg-gray-50 text-slate-800"
+                class="h-full px-3 py-4 overflow-y-auto bg-white text-slate-800"
             >
                 <div class="py-2 mb-2">
                     <div class="text-4xl font-bold game text-slate-700">
