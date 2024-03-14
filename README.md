@@ -85,6 +85,9 @@ Terjual
             <td>
                 status
             </td >
+            <td>
+                total
+            </td >
         </tr>
     </tbody>
 </table>
