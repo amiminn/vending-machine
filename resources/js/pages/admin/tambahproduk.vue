@@ -23,14 +23,22 @@
                             v-model="dataProduk.stok"
                         />
                     </div>
-                </div>
-                <div class="my-3">
-                    <label>harga produk (Rp)</label>
-                    <input
-                        type="text"
-                        class="form-input"
-                        v-model="dataProduk.harga"
-                    />
+                    <div>
+                        <label>harga produk (Rp)</label>
+                        <input
+                            type="text"
+                            class="form-input"
+                            v-model="dataProduk.harga"
+                        />
+                    </div>
+                    <div>
+                        <label>deskripsi produk</label>
+                        <input
+                            type="text"
+                            class="form-input"
+                            v-model="dataProduk.deskripsi"
+                        />
+                    </div>
                 </div>
 
                 <div class="my-3 flex justify-center">
@@ -46,7 +54,7 @@
                         @click="selectFile"
                     >
                         <div class="self-center text-gray-500 font-bold italic">
-                            [pilih gambar]
+                            [Thumbnail]
                         </div>
                     </div>
 
@@ -94,6 +102,7 @@ export default {
             },
             dataProduk: {
                 nama: null,
+                deskripsi: null,
                 harga: 0,
                 stok: 1,
                 gambar: null,
@@ -106,6 +115,7 @@ export default {
                 let formData = new FormData();
                 formData.append("gambar", this.dataProduk.gambar);
                 formData.append("nama", this.dataProduk.nama);
+                formData.append("deskripsi", this.dataProduk.deskripsi);
                 formData.append("harga", this.dataProduk.harga);
                 formData.append("stok", this.dataProduk.stok);
                 let res = await axios.post(this.$api.produk, formData);

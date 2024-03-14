@@ -32,8 +32,8 @@
                             <td>{{ d.stok }}</td>
                             <td>{{ $filters.harga(d.harga) }}</td>
                             <td>
-                                <a
-                                    href="#"
+                                <button
+                                    @click="edit(d.id)"
                                     class="flex items-center font-bold gap-2"
                                 >
                                     <img
@@ -41,8 +41,8 @@
                                         class="w-8"
                                         alt=""
                                     />
-                                    edit
-                                </a>
+                                    <span class="text-slate-600">edit</span>
+                                </button>
                             </td>
                         </tr>
                     </tbody>
@@ -64,6 +64,13 @@ export default {
         async getDataProduk() {
             let res = await axios.get(this.$api.produk);
             this.dataProduk = res.data;
+        },
+        edit(id) {
+            Swal.fire({
+                title: "Edit data?",
+                text: "fitur edit belum tersedia.",
+                icon: "error",
+            });
         },
     },
     mounted() {

@@ -20,7 +20,8 @@
                 </div>
 
                 <div class="absolute bottom-5 left-0 right-0 m-auto p-3">
-                    <div
+                    <Link
+                        href="/"
                         class="bg-[#1C1E21] text-white rounded-full h-28 flex items-center justify-between px-10"
                     >
                         <div class="">lanjut belanja</div>
@@ -29,7 +30,7 @@
                         >
                             <img src="/icon/cart.svg" alt="" class="h-16" />
                         </div>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

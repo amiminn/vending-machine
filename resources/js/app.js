@@ -9,6 +9,7 @@ import toRupiah from "@develoka/angka-rupiah-js";
 // components
 import HA from "./components/HA.vue";
 import card from "./components/card.vue";
+import loading from "./components/loading.vue";
 
 // window
 window.router = router;
@@ -24,6 +25,7 @@ createInertiaApp({
         app.component("Link", Link);
         app.component("ha", HA);
         app.component("card", card);
+        app.component("loading", loading);
 
         app.config.globalProperties.$api = {
             auth: {

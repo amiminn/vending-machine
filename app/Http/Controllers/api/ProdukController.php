@@ -22,6 +22,7 @@ class ProdukController extends Controller
             $gambar = FileService::saveOnetoAsset($request, "gambar", "produk");
             $data = [
                 "nama" => $request->nama,
+                "deskripsi" => $request->deskripsi,
                 "harga" => $request->harga,
                 "gambar" => $gambar,
                 "stok" => $request->stok,
