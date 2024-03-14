@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\DashboardController;
 use App\Http\Controllers\api\ProdukController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::apiResource("produk", ProdukController::class);
+Route::get("dashboard", [DashboardController::class, "index"]);

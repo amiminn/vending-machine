@@ -31,9 +31,9 @@
       @endauth
   </script>
     @vite(['resources/js/app.js', "resources/css/app.css"])
-    {{-- <link rel="stylesheet" href="/build/assets/app-Bnk-OWB_.css">
+    {{-- <link rel="stylesheet" href="/build/assets/app-Bbxe8Ftd.css">
     <link rel="stylesheet" href="/build/assets/app-B-gXXBrj.css">
-    <script src="/build/assets/app-BRngqVq4.js" type="module"></script> --}}
+    <script src="/build/assets/app-BOB9AfXr.js" type="module"></script> --}}
     @inertiaHead
   </head>
   <body class="">

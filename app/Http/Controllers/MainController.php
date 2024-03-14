@@ -27,6 +27,11 @@ class MainController extends Controller
         return Inertia::render("admin/produk");
     }
 
+    public function pengaturan()
+    {
+        return Inertia::render("admin/pengaturan");
+    }
+
     public function tambahproduk()
     {
         return Inertia::render("admin/tambahproduk");

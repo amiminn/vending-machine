@@ -11,6 +11,7 @@ Route::controller(MainController::class)->group(function () {
     Route::get("dashboard", "dashboard");
     Route::get("penjualan", "penjualan");
     Route::get("product", "produk");
+    Route::get("pengaturan", "pengaturan");
     Route::get("tambah-product", "tambahproduk");
 
     Route::get("login", "login");

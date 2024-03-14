@@ -21,7 +21,7 @@
                 <div class="grid grid-cols-2">
                     <div>
                         <div>produk</div>
-                        <div>3</div>
+                        <div>{{ dataDashboard.countProduk }}</div>
                     </div>
                     <div class="flex items-center justify-center">
                         <img
@@ -36,7 +36,7 @@
                 <div class="grid grid-cols-2">
                     <div>
                         <div>total transaksi</div>
-                        <div>23</div>
+                        <div>{{ dataDashboard.countTransaksi }}</div>
                     </div>
                     <div class="flex items-center justify-center">
                         <img
@@ -58,6 +58,23 @@ import chart from "./chart.vue";
 import layout from "./layout.vue";
 export default {
     components: { layout, chart },
+    data() {
+        return {
+            dataDashboard: {
+                countProduk: 0,
+                countTransaksi: 0,
+            },
+        };
+    },
+    methods: {
+        async getData() {
+            let res = await axios.get(this.$api.dashboard);
+            this.dataDashboard = res.data;
+        },
+    },
+    mounted() {
+        this.getData();
+    },
 };
 </script>
 <style lang=""></style>

@@ -24,7 +24,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(d, index) in dataProduk" :key="index">
-                            <td>1</td>
+                            <td>{{ index + 1 }}</td>
                             <td>{{ d.nama }}</td>
                             <td>
                                 <img :src="d.gambar" class="w-6" alt="" />
@@ -63,7 +63,6 @@ export default {
     methods: {
         async getDataProduk() {
             let res = await axios.get(this.$api.produk);
-            console.log(res);
             this.dataProduk = res.data;
         },
     },

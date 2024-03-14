@@ -1,5 +1,7 @@
 import Swal from "sweetalert2";
 
+window.Swal = Swal;
+
 window.toast = (msg = "empty", icon = "success") => {
     const Toast = Swal.mixin({
         toast: true,
