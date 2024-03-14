@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\api\DashboardController;
 use App\Http\Controllers\api\ProdukController;
+use App\Http\Controllers\api\TransaksiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource("produk", ProdukController::class);
 Route::get("dashboard", [DashboardController::class, "index"]);
+Route::get("data-chart", [DashboardController::class, "dataChart"]);
+Route::controller(TransaksiController::class)->group(function () {
+    Route::get("transaksi", "index");
+    Route::post("create-transaksi", "createTransaksi");
+    Route::get("callback-transaksi={id}", "callback");
+});

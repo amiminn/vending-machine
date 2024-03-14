@@ -37,8 +37,8 @@ createInertiaApp({
 
         app.config.globalProperties.$filters = {
             status(data = null) {
-                if (data == 1) return "Aktif";
-                if (data == 0) return "Nonaktif";
+                if (data == 1) return "Terbayar";
+                if (data == 0) return "Belum Terbayar";
             },
             stok(data = null) {
                 if (data > 1) return data;

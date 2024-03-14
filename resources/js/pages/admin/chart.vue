@@ -14,8 +14,9 @@ export default {
     },
     methods: {
         async getData() {
-            // let res = await axios.get("api/data-chart");
-            // this.dataChart = res.data;
+            let res = await axios.get("api/data-chart");
+            this.dataChart = res.data;
+
             this.loadData();
         },
         async loadData() {

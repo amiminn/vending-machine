@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/amiminn/support.git",
-                "reference": "4f59e019e2af7cb0a535a09c72284ade9241761d"
+                "reference": "69c2c99317b00badd7deee4533011d2299a46dbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amiminn/support/zipball/4f59e019e2af7cb0a535a09c72284ade9241761d",
-                "reference": "4f59e019e2af7cb0a535a09c72284ade9241761d",
+                "url": "https://api.github.com/repos/amiminn/support/zipball/69c2c99317b00badd7deee4533011d2299a46dbc",
+                "reference": "69c2c99317b00badd7deee4533011d2299a46dbc",
                 "shasum": ""
             },
             "default-branch": true,
@@ -42,7 +42,7 @@
                 "issues": "https://github.com/amiminn/support/issues",
                 "source": "https://github.com/amiminn/support/tree/master"
             },
-            "time": "2024-03-13T04:29:39+00:00"
+            "time": "2024-03-14T13:13:06+00:00"
         },
         {
             "name": "brick/math",
@@ -8244,5 +8244,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }

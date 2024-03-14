@@ -6,7 +6,13 @@
                 <div class="grid grid-cols-2">
                     <div>
                         <div>total pendapatan</div>
-                        <div>Rp 34,4rb</div>
+                        <div>
+                            {{
+                                $filters.hargaGroup(
+                                    dataDashboard.countPendapatan
+                                )
+                            }}
+                        </div>
                     </div>
                     <div class="flex items-center justify-center">
                         <img
@@ -63,6 +69,7 @@ export default {
             dataDashboard: {
                 countProduk: 0,
                 countTransaksi: 0,
+                countPendapatan: 0,
             },
         };
     },

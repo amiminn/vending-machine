@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('terjual', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger("produk_id");
             $table->json("data_produk")->nullable();
             $table->text("qr")->nullable();
             $table->boolean("status")->default(0);
+            $table->integer("total")->default(0);
             $table->timestamps();
         });
     }

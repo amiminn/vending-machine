@@ -41,4 +41,9 @@ class MainController extends Controller
     {
         return Inertia::render("utama/index");
     }
+
+    public function pembayaranSuccess()
+    {
+        return Inertia::render("utama/pembayaranSuccess");
+    }
 }

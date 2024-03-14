@@ -51,7 +51,8 @@
                     >
                         <div class="">Rp 4.300</div>
                         <div
-                            class="rounded-full bg-white w-24 flex justify-center"
+                            @click="bayar()"
+                            class="rounded-full cursor-pointer bg-white w-24 flex justify-center"
                         >
                             <img src="/icon/cart.svg" alt="" class="h-16" />
                         </div>
@@ -67,14 +68,17 @@ export default {
     components: {
         layout,
     },
-    data() {
-        return {
-            produk: [
-                {
-                    nama: "coca-cola",
-                },
-            ],
-        };
+    methods: {
+        async bayar() {
+            try {
+                let res = await axios.post("/api/create-transaksi", {
+                    idProduk: 1710427670352,
+                });
+                window.location.href = res.data;
+            } catch (error) {
+                console.error(error);
+            }
+        },
     },
 };
 </script>
