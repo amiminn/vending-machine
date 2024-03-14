@@ -8,7 +8,7 @@
             class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
         >
             <span class="sr-only">Open sidebar</span>
-            <vue-feather type="list"></vue-feather>
+            <img src="/icon/list.svg" class="w-8" alt="" />
         </button>
 
         <aside
@@ -32,7 +32,11 @@
                                 href="dashboard"
                                 class="flex items-center p-2 rounded-lg hover:bg-gray-300 group"
                             >
-                                <vue-feather type="grid"></vue-feather>
+                                <img
+                                    src="/icon/dashboard/pie-chart.svg"
+                                    class="w-6"
+                                    alt=""
+                                />
                                 <span class="ms-3">Dashboard</span>
                             </Link>
                         </li>
@@ -41,7 +45,11 @@
                                 href="penjualan"
                                 class="flex items-center p-2 rounded-lg hover:bg-gray-300 group"
                             >
-                                <vue-feather type="file-text"></vue-feather>
+                                <img
+                                    src="/icon/dashboard/notebook.svg"
+                                    class="w-6"
+                                    alt=""
+                                />
                                 <span class="ms-3">Penjualan</span>
                             </Link>
                         </li>
@@ -56,18 +64,13 @@
                                 href="product"
                                 class="flex items-center p-2 rounded-lg hover:bg-gray-300 group"
                             >
-                                <vue-feather type="coffee"></vue-feather>
+                                <img
+                                    src="/icon/dashboard/tag-price.svg"
+                                    class="w-6"
+                                    alt=""
+                                />
                                 <span class="ms-3">Produk</span>
                             </Link>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                class="flex items-center p-2 rounded-lg hover:bg-gray-300 group"
-                            >
-                                <vue-feather type="tablet"></vue-feather>
-                                <span class="ms-3">Simulator</span>
-                            </a>
                         </li>
                     </ul>
                     <ul
@@ -78,7 +81,11 @@
                                 href="login"
                                 class="flex items-center font-bold p-2 text-rose-400 rounded-lg bg-rose-100 group"
                             >
-                                <vue-feather type="arrow-right"></vue-feather>
+                                <img
+                                    src="/icon/dashboard/cancel.svg"
+                                    class="w-6"
+                                    alt=""
+                                />
                                 <span class="ms-3">Log out</span>
                             </Link>
                         </li>

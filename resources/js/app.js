@@ -4,7 +4,6 @@ import "animate.css";
 import { createApp, h } from "vue";
 import { createInertiaApp, Link } from "@inertiajs/vue3";
 import toRupiah from "@develoka/angka-rupiah-js";
-import VueFeather from "vue-feather";
 
 // components
 import HA from "./components/HA.vue";
@@ -19,7 +18,6 @@ createInertiaApp({
         const app = createApp({ render: () => h(App, props) });
 
         app.component("Link", Link);
-        app.component(VueFeather.name, VueFeather);
         app.component("ha", HA);
         app.component("card", card);
 

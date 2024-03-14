@@ -1,6 +1,6 @@
 <template lang="">
     <layout>
-        <ha>> produk</ha>
+        <ha>produk</ha>
         <card>
             <div class="mb-4 flex justify-end">
                 <Link
@@ -38,9 +38,15 @@
                             <td>
                                 <a
                                     href="#"
-                                    class="bg-gray-600 text-white px-5 py-2 rounded"
-                                    >lihat</a
+                                    class="flex items-center font-bold gap-2"
                                 >
+                                    <img
+                                        src="/icon/dashboard/edit.svg"
+                                        class="w-8"
+                                        alt=""
+                                    />
+                                    edit
+                                </a>
                             </td>
                         </tr>
                     </tbody>

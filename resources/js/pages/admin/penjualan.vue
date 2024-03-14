@@ -1,6 +1,6 @@
 <template lang="">
     <layout>
-        <ha>> laporan transaksi penjualan</ha>
+        <ha>laporan transaksi penjualan</ha>
         <card>
             <div class="mb-4 flex justify-end">
                 <a href="#" class="bg-gray-600 text-white px-5 py-2 rounded">

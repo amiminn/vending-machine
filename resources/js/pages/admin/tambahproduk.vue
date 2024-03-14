@@ -1,6 +1,6 @@
 <template lang="">
     <layout>
-        <ha>> tambah produk baru</ha>
+        <ha>tambah produk baru</ha>
         <card>
             <div class="grid grid-cols-2 gap-3">
                 <div>
