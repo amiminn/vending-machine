@@ -23,18 +23,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr v-for="(d, index) in dataProduk" :key="index">
                             <td>1</td>
-                            <td>cola</td>
+                            <td>{{ d.nama }}</td>
                             <td>
-                                <img
-                                    src="/produk/sprite.png"
-                                    class="w-6"
-                                    alt=""
-                                />
+                                <img :src="d.gambar" class="w-6" alt="" />
                             </td>
-                            <td>3</td>
-                            <td>Rp 3.800</td>
+                            <td>{{ d.stok }}</td>
+                            <td>{{ $filters.harga(d.harga) }}</td>
                             <td>
                                 <a
                                     href="#"
@@ -59,6 +55,21 @@
 import layout from "./layout.vue";
 export default {
     components: { layout },
+    data() {
+        return {
+            dataProduk: [],
+        };
+    },
+    methods: {
+        async getDataProduk() {
+            let res = await axios.get(this.$api.produk);
+            console.log(res);
+            this.dataProduk = res.data;
+        },
+    },
+    mounted() {
+        this.getDataProduk();
+    },
 };
 </script>
 <style lang=""></style>

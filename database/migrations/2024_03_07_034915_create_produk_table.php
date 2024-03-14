@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer("harga");
             $table->string("gambar")->nullable();
             $table->integer("stok")->default(0);
-            $table->boolean("status")->default(0);
+            $table->boolean("status")->default(1);
             $table->timestamps();
         });
     }

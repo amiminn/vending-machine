@@ -1,6 +1,7 @@
 import "./bootstrap";
 import "flowbite";
 import "animate.css";
+import "./sweetAlert";
 import { createApp, h } from "vue";
 import { createInertiaApp, Link } from "@inertiajs/vue3";
 import toRupiah from "@develoka/angka-rupiah-js";
