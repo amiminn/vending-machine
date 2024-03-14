@@ -50,6 +50,9 @@ Produk
                 nama
             </td>
             <td>
+                deskripsi
+            </td>
+            <td>
                 harga
             </td>
             <td>
