@@ -74,6 +74,9 @@ Terjual
                 id
             </td >
             <td>
+                produk_id
+            </td >
+            <td>
                 data_produk(json)
             </td >
             <td>
@@ -81,6 +84,9 @@ Terjual
             </td >
             <td>
                 status
+            </td >
+            <td>
+                total
             </td >
         </tr>
     </tbody>
