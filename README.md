@@ -74,6 +74,9 @@ Terjual
                 id
             </td >
             <td>
+                produk_id
+            </td >
+            <td>
                 data_produk(json)
             </td >
             <td>
