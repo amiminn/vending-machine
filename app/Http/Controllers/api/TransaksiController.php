@@ -33,8 +33,8 @@ class TransaksiController extends Controller
 
             $return_url = env("APP_URL") . "/pembayaran-success";
 
-            // $response = Tripay::generate("QRIS", $produk->harga, $data, $callback_url, $return_url);
-            $response = self::jsonDummy();
+            $response = Tripay::generate("QRIS", $produk->harga, $data, $callback_url, $return_url);
+            // $response = self::jsonDummy();
 
             TransaksiModel::create([
                 "data_produk" => json_encode($response),
@@ -43,7 +43,7 @@ class TransaksiController extends Controller
                 "total" => $produk->harga
             ]);
 
-            return $response["data"]["checkout_url"];
+            return $response->data->checkout_url;
         } catch (\Throwable $th) {
             return $th->getMessage();
         }

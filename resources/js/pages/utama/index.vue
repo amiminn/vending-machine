@@ -63,12 +63,17 @@
                         class="bg-[#1C1E21] text-white rounded-full h-full flex items-center justify-between px-10"
                     >
                         <div class="">{{ $filters.harga(produk.harga) }}</div>
-                        <div
-                            @click="bayar()"
-                            class="rounded-full cursor-pointer bg-white w-24 flex justify-center"
-                        >
-                            <img src="/icon/cart.svg" alt="" class="h-16" />
-                        </div>
+                        <template v-if="loading" class="text-white">
+                            loading..
+                        </template>
+                        <template v-if="!loading">
+                            <div
+                                @click="bayar()"
+                                class="rounded-full cursor-pointer bg-white w-24 flex justify-center"
+                            >
+                                <img src="/icon/cart.svg" alt="" class="h-16" />
+                            </div>
+                        </template>
                     </div>
                 </div>
             </div>
@@ -87,16 +92,20 @@ export default {
             produk: {},
             listId: [],
             index: 0,
+            loading: false,
         };
     },
     methods: {
         async bayar() {
+            this.loading = true;
             try {
                 let res = await axios.post("/api/create-transaksi", {
                     idProduk: this.listId[this.index],
                 });
                 window.location.href = res.data;
+                this.loading = false;
             } catch (error) {
+                this.loading = false;
                 console.error(error);
             }
         },
