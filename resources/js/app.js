@@ -35,6 +35,7 @@ createInertiaApp({
             riwayat: "/api/riwayat",
             produk: "/api/produk",
             transaksi: "/api/transaksi",
+            pengaturan: "/api/pengaturan",
         };
 
         app.config.globalProperties.$filters = {

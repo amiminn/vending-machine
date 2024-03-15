@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\DashboardController;
+use App\Http\Controllers\api\PengaturanController;
 use App\Http\Controllers\api\ProdukController;
 use App\Http\Controllers\api\TransaksiController;
 use Illuminate\Http\Request;
@@ -24,4 +25,8 @@ Route::controller(TransaksiController::class)->group(function () {
     Route::get("transaksi", "index");
     Route::post("create-transaksi", "createTransaksi");
     Route::get("callback-transaksi={id}", "callback");
+});
+Route::controller(PengaturanController::class)->group(function () {
+    Route::get("pengaturan", "index");
+    Route::post("pengaturan", "updatePengaturan");
 });
