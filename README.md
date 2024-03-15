@@ -2,6 +2,9 @@
 
 Project Vending Machine yang terintegrasi dengan IOT
 
+demo guest : https://vmme.fund/    
+demo admin: https://vmme.fund/login
+
 ## instalation
 
 cara instalasi
