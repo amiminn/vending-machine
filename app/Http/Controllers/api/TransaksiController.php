@@ -29,9 +29,9 @@ class TransaksiController extends Controller
                 "quantity" => 1,
             ]];
 
-            $callback_url = env("APP_URL") . "/api/callback-transaksi=" . $produk->id;
+            $callback_url = "";
 
-            $return_url = env("APP_URL") . "/pembayaran-success";
+            $return_url = env("APP_URL") . "/pembayaran-success=" . $produk->id;
 
             $response = Tripay::generate("QRIS", $produk->harga, $data, $callback_url, $return_url);
             // $response = self::jsonDummy();
@@ -49,7 +49,7 @@ class TransaksiController extends Controller
         }
     }
 
-    public function callback($id)
+    public static function callback($id)
     {
         // cari id
         $produk = ProdukModel::find($id);

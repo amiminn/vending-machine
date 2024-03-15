@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\api\TransaksiController;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -42,8 +43,9 @@ class MainController extends Controller
         return Inertia::render("utama/index");
     }
 
-    public function pembayaranSuccess()
+    public function pembayaranSuccess($id)
     {
+        TransaksiController::callback($id);
         return Inertia::render("utama/pembayaranSuccess");
     }
 }

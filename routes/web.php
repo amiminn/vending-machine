@@ -13,7 +13,7 @@ Route::controller(MainController::class)->group(function () {
     Route::get("product", "produk");
     Route::get("pengaturan", "pengaturan");
     Route::get("tambah-product", "tambahproduk");
-    Route::get("pembayaran-success", "pembayaranSuccess");
+    Route::get("pembayaran-success={id}", "pembayaranSuccess");
 
     Route::get("login", "login");
 });
