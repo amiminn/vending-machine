@@ -41,7 +41,18 @@ class ProdukController extends Controller
 
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $data = [
+                "nama" => $request->nama,
+                "deskripsi" => $request->deskripsi,
+                "harga" => $request->harga,
+                "stok" => $request->stok,
+            ];
+            ProdukModel::find($id)->update($data);
+            return Response::success("data produk berhasil diubah.");
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
     }
 
     public function destroy(string $id)

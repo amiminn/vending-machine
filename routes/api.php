@@ -30,3 +30,5 @@ Route::controller(PengaturanController::class)->group(function () {
     Route::get("pengaturan", "index");
     Route::post("pengaturan", "updatePengaturan");
 });
+
+Route::get("simulasi", [TransaksiController::class, "simulasi"]);

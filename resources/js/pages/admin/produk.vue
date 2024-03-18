@@ -32,8 +32,8 @@
                             <td>{{ d.stok }}</td>
                             <td>{{ $filters.harga(d.harga) }}</td>
                             <td>
-                                <button
-                                    @click="edit(d.id)"
+                                <Link
+                                    :href="'/product=' + d.id"
                                     class="flex items-center font-bold gap-2"
                                 >
                                     <img
@@ -42,7 +42,7 @@
                                         alt=""
                                     />
                                     <span class="text-slate-600">edit</span>
-                                </button>
+                                </Link>
                             </td>
                         </tr>
                     </tbody>

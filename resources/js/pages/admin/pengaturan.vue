@@ -20,6 +20,21 @@
                     </div>
                 </card>
             </form>
+            <form @submit.prevent="cekIot()">
+                <card>
+                    <div class="grid gap-3 my-5">
+                        <div class="ls text-slate-600 text-xl text-center">
+                            cek iot response
+                        </div>
+                        <button
+                            type="submit"
+                            class="py-2 bg-slate-400 rounded-lg text-white"
+                        >
+                            cek sekarang
+                        </button>
+                    </div>
+                </card>
+            </form>
         </div>
     </layout>
 </template>
@@ -45,6 +60,10 @@ export default {
                 this.dataPengaturan
             );
             toast(res.data.msg);
+        },
+        async cekIot() {
+            let res = await axios.get("/api/simulasi");
+            toast(res.data.msg, "warning");
         },
     },
     mounted() {

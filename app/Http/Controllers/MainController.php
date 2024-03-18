@@ -28,9 +28,9 @@ class MainController extends Controller
         return Inertia::render("admin/produk");
     }
 
-    public function editProduk()
+    public function editProduk($id)
     {
-        return Inertia::render("admin/editProduk");
+        return Inertia::render("admin/editProduk", compact("id"));
     }
 
     public function pengaturan()

@@ -5,7 +5,7 @@
         >
             <div class="grid grid-rows-4 h-full text-3xl">
                 <div
-                    class="flex justify-center items-center text-5xl mt-3 text-green-500"
+                    class="flex justify-center text-center items-center text-5xl mt-3 text-green-500"
                 >
                     pembayaran success
                 </div>

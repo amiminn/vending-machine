@@ -1,10 +1,10 @@
 <template lang="">
     <layout>
         <div class="flex justify-center">
-            <template v-if="!produk.gambar">
+            <template v-if="kosong">
                 <loading></loading>
             </template>
-            <template v-if="produk.gambar">
+            <template v-if="!kosong">
                 <img :src="produk.gambar" alt="produk" class="w-2/4" />
             </template>
         </div>
@@ -13,9 +13,12 @@
         >
             <div class="grid grid-rows-4 h-full text-3xl">
                 <div
-                    class="flex justify-center items-center text-5xl mt-3 text-slate-600"
+                    class="flex justify-center items-center text-center text-5xl mt-3 text-slate-600"
                 >
-                    {{ produk.nama }}
+                    <template v-if="kosong"></template>
+                    <template v-if="!kosong">
+                        {{ produk.nama }}
+                    </template>
                 </div>
                 <div class="row-span-2 grid items-center">
                     <div class="flex justify-around gap-2 p-2 text-slate-600">
@@ -34,14 +37,19 @@
                         <div
                             class="text-slate-600 grid items-center text-center"
                         >
-                            <p>{{ produk.deskripsi }}</p>
-                            <p>
-                                tersedia:
-                                <span class="text-rose-500 text-5xl">{{
-                                    produk.stok
-                                }}</span>
-                                item
-                            </p>
+                            <template v-if="kosong">
+                                produk tidak tersedia
+                            </template>
+                            <template v-if="!kosong">
+                                <p>{{ produk.deskripsi }}</p>
+                                <p>
+                                    tersedia:
+                                    <span class="text-rose-500 text-5xl">{{
+                                        produk.stok
+                                    }}</span>
+                                    item
+                                </p>
+                            </template>
                         </div>
                         <div class="flex items-center justify-end">
                             <div
@@ -62,7 +70,14 @@
                     <div
                         class="bg-[#1C1E21] text-white rounded-full h-full flex items-center justify-between px-10"
                     >
-                        <div class="">{{ $filters.harga(produk.harga) }}</div>
+                        <div class="">
+                            <template v-if="kosong">
+                                {{ $filters.harga(0) }}
+                            </template>
+                            <template v-if="!kosong">
+                                {{ $filters.harga(produk.harga) }}
+                            </template>
+                        </div>
                         <template v-if="loading" class="text-white">
                             loading..
                         </template>
@@ -93,6 +108,7 @@ export default {
             listId: [],
             index: 0,
             loading: false,
+            kosong: true,
         };
     },
     methods: {
@@ -144,6 +160,7 @@ export default {
         },
         loadProduk() {
             this.produk = this.findProduk(this.listId[this.index]);
+            this.kosong = !_.isObject(this.produk);
         },
     },
     mounted() {
