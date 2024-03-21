@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use Amiminn\Support\Event\Pusher;
 use Amiminn\Support\Response;
 use App\Http\Controllers\Controller;
 use App\Models\TransaksiModel;
@@ -52,19 +53,16 @@ class TransaksiController extends Controller
 
     public static function callback($id)
     {
-        $produk = ProdukModel::find($id);
-        TransaksiModel::where("produk_id", $id)->update(["status" => 1]);
-        $produk->decrement("stok");
-    }
+        try {
 
-    public static function hitIot()
-    {
-        $data = PengaturanModel::first();
-        Http::async()->get('http://' . $data->ip . '/success');
-    }
-    public function simulasi()
-    {
-        self::hitIot();
-        return Response::success("cek response alat.");
+            // $produk = ProdukModel::find($id);
+            // TransaksiModel::where("produk_id", $id)->update(["status" => 1]);
+            // $produk->decrement("stok");
+            $ip = PengaturanModel::first();
+            event(new Pusher("transaksi", "transaksi.baru", compact("ip")));
+        } catch (\Throwable $th) {
+            //throw $th;
+            // return halaman transaksi gagal, tidak dapat menemukan produk
+        }
     }
 }

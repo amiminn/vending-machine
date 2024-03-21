@@ -1,5 +1,5 @@
 <template lang="">
-    <div v-if="show">
+    <!-- <div v-if="show">
         <div class="flex justify-between mb-1">
             <span> </span>
             <span class="text-sm font-bold text-bg">
@@ -12,7 +12,7 @@
                 :style="{ width: setting.indexMulai + '%' }"
             ></div>
         </div>
-    </div>
+    </div> -->
 </template>
 <script>
 export default {
@@ -27,22 +27,27 @@ export default {
         };
     },
     methods: {
-        start() {
-            this.show = true;
-            const interval = setInterval(() => {
-                this.setting.indexMulai = (this.setting.indexMulai % 100) + 1;
-                if (this.setting.indexMulai === 100) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        this.show = false;
-                    }, 2000);
-                }
-            }, (this.setting.timeout * 1000) / 100);
+        // start() {
+        //     this.show = true;
+        //     const interval = setInterval(() => {
+        //         this.setting.indexMulai = (this.setting.indexMulai % 100) + 1;
+        //         if (this.setting.indexMulai === 100) {
+        //             clearInterval(interval);
+        //             setTimeout(() => {
+        //                 this.show = false;
+        //             }, 2000);
+        //         }
+        //     }, (this.setting.timeout * 1000) / 100);
+        // },
+        async hit(ip) {
+            let res = await axios.get("http://" + ip + "/success");
         },
     },
     mounted() {
-        Echo.channel("chat").listen(".bubble.chat", (e) => {
-            this.start();
+        Echo.channel("transaksi").listen(".transaksi.baru", (e) => {
+            console.log(e.callback.ip.ip);
+            this.hit(e.callback.ip.ip);
+            toast("Oops, sepertinya ada transaksi baru.", "info");
         });
     },
 };

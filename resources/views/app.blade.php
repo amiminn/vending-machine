@@ -30,10 +30,10 @@
         let user = {{ Js::from(auth()->user()) }};let token = {{ Js::from(session('token')) }};window.Auth = {user,token}
       @endauth
   </script>
-    @vite(['resources/js/app.js', "resources/css/app.css"])
-    {{-- <link rel="stylesheet" href="/build/assets/app-B98UHd60.css">
+    {{-- @vite(['resources/js/app.js', "resources/css/app.css"]) --}}
+    <link rel="stylesheet" href="/build/assets/app-CXfXsxr8.css">
     <link rel="stylesheet" href="/build/assets/app-B-gXXBrj.css">
-    <script src="/build/assets/app-BF8S3tDk.js" type="module"></script> --}}
+    <script src="/build/assets/app-DywuxXBZ.js" type="module"></script>
     @inertiaHead
   </head>
   <body class="">

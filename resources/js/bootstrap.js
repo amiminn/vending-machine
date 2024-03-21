@@ -32,3 +32,15 @@ window._ = _;
 String.prototype.isMatch = function (s) {
     return this.match(s) !== null;
 };
+
+import Echo from "laravel-echo";
+
+import Pusher from "pusher-js";
+window.Pusher = Pusher;
+
+window.Echo = new Echo({
+    broadcaster: "pusher",
+    key: "7430dd527b18cec39c6b",
+    cluster: "ap1",
+    forceTLS: true,
+});

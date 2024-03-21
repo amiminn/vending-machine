@@ -1,5 +1,6 @@
 <template lang="">
     <div class="bg-[#F5F9FC] h-screen">
+        <callback></callback>
         <button
             data-drawer-target="sidebar-multi-level-sidebar"
             data-drawer-toggle="sidebar-multi-level-sidebar"
@@ -119,7 +120,9 @@
     </div>
 </template>
 <script>
+import callback from "../../components/callback.vue";
 export default {
+    components: { callback },
     methods: {
         async logout() {
             Swal.fire({
