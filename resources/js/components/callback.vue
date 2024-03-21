@@ -40,14 +40,28 @@ export default {
         //     }, (this.setting.timeout * 1000) / 100);
         // },
         async hit(ip) {
-            let res = await axios.get("http://" + ip + "/success");
+            try {
+                let res = await axios.get("http://" + ip + "/success");
+                toast("Oops, sepertinya ada transaksi baru.", "info");
+            } catch (error) {
+                toast("Oops, sepertinya ada kesalahan pada alat.", "error");
+            }
+        },
+        async hitSimulasi(ip) {
+            try {
+                let res = await axios.get("http://" + ip + "/success");
+                toast("simulasi alat.", "info");
+            } catch (error) {
+                toast("Oops, sepertinya ada kesalahan pada alat.", "error");
+            }
         },
     },
     mounted() {
         Echo.channel("transaksi").listen(".transaksi.baru", (e) => {
-            console.log(e.callback.ip.ip);
-            this.hit(e.callback.ip.ip);
-            toast("Oops, sepertinya ada transaksi baru.", "info");
+            this.hit(e.callback.ip);
+        });
+        Echo.channel("simulasi").listen(".simulasi", (e) => {
+            this.hitSimulasi(e.callback.ip);
         });
     },
 };

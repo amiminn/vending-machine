@@ -40,7 +40,7 @@ window.Pusher = Pusher;
 
 window.Echo = new Echo({
     broadcaster: "pusher",
-    key: "7430dd527b18cec39c6b",
+    key: Laravel.pusherKey,
     cluster: "ap1",
     forceTLS: true,
 });

@@ -25,15 +25,15 @@
 
 <!-- Meta Tags Generated with https://metatags.io -->
     <script>
-      window.Laravel = {csrfToken: '{{ csrf_token() }}',app_key : '{{ env("APP_KEY") }}',url : '{{ env("APP_URL") }}'}
+      window.Laravel = {csrfToken: '{{ csrf_token() }}',app_key : '{{ env("APP_KEY") }}',url : '{{ env("APP_URL") }}', pusherKey : '{{ env("PUSHER_APP_KEY") }}'}
       @auth
         let user = {{ Js::from(auth()->user()) }};let token = {{ Js::from(session('token')) }};window.Auth = {user,token}
       @endauth
   </script>
-    {{-- @vite(['resources/js/app.js', "resources/css/app.css"]) --}}
-    <link rel="stylesheet" href="/build/assets/app-CXfXsxr8.css">
+    @vite(['resources/js/app.js', "resources/css/app.css"])
+    {{-- <link rel="stylesheet" href="/build/assets/app-CXfXsxr8.css">
     <link rel="stylesheet" href="/build/assets/app-B-gXXBrj.css">
-    <script src="/build/assets/app-DywuxXBZ.js" type="module"></script>
+    <script src="/build/assets/app-BOCBXdkJ.js" type="module"></script> --}}
     @inertiaHead
   </head>
   <body class="">

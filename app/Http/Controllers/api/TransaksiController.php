@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
-use Amiminn\Support\Event\Pusher;
+use App\Pusher;
 use Amiminn\Support\Response;
 use App\Http\Controllers\Controller;
 use App\Models\TransaksiModel;
@@ -55,14 +55,21 @@ class TransaksiController extends Controller
     {
         try {
 
-            // $produk = ProdukModel::find($id);
-            // TransaksiModel::where("produk_id", $id)->update(["status" => 1]);
-            // $produk->decrement("stok");
-            $ip = PengaturanModel::first();
+            $produk = ProdukModel::find($id);
+            TransaksiModel::where("produk_id", $id)->update(["status" => 1]);
+            $produk->decrement("stok");
+            $ip = PengaturanModel::first()->ip;
             event(new Pusher("transaksi", "transaksi.baru", compact("ip")));
         } catch (\Throwable $th) {
-            //throw $th;
+            return redirect()->to("/");
             // return halaman transaksi gagal, tidak dapat menemukan produk
         }
+    }
+
+    public function simulasi()
+    {
+        $ip = PengaturanModel::first()->ip;
+        event(new Pusher("simulasi", "simulasi", compact("ip")));
+        return PengaturanModel::first()->ip;
     }
 }

@@ -62,8 +62,7 @@ export default {
             toast(res.data.msg);
         },
         async cekIot() {
-            let res = await axios.get("/api/simulasi");
-            toast(res.data.msg, "warning");
+            await axios.get("/api/simulasi");
         },
     },
     mounted() {
