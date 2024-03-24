@@ -26,6 +26,7 @@ class ProdukController extends Controller
                 "harga" => $request->harga,
                 "gambar" => $gambar,
                 "stok" => $request->stok,
+                "endpoint" => $request->endpoint,
             ];
             ProdukModel::create($data);
             return Response::success("produk berhasil tambahkan.");

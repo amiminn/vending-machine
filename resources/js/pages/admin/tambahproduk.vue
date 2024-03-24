@@ -32,13 +32,23 @@
                         />
                     </div>
                     <div>
-                        <label>deskripsi produk</label>
-                        <input
-                            type="text"
+                        <label>endpoint servo</label>
+                        <select
                             class="form-input"
-                            v-model="dataProduk.deskripsi"
-                        />
+                            v-model="dataProduk.endpoint"
+                        >
+                            <option selected disabled>pilih</option>
+                            <option value="endpoint-1">servo 1</option>
+                        </select>
                     </div>
+                </div>
+                <div>
+                    <label>deskripsi produk</label>
+                    <input
+                        type="text"
+                        class="form-input"
+                        v-model="dataProduk.deskripsi"
+                    />
                 </div>
 
                 <div class="my-3 flex justify-center">
@@ -106,6 +116,7 @@ export default {
                 harga: 0,
                 stok: 1,
                 gambar: null,
+                endpoint: null,
             },
         };
     },
@@ -118,6 +129,7 @@ export default {
                 formData.append("deskripsi", this.dataProduk.deskripsi);
                 formData.append("harga", this.dataProduk.harga);
                 formData.append("stok", this.dataProduk.stok);
+                formData.append("endpoint", this.dataProduk.endpoint);
                 let res = await axios.post(this.$api.produk, formData);
                 toast(res.data.msg);
                 window.history.back();

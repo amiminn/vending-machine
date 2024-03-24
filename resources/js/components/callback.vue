@@ -41,7 +41,7 @@ export default {
         // },
         async hit(ip) {
             try {
-                let res = await axios.get("http://" + ip + "/success");
+                let res = await axios.get("http://" + ip + "/endpoint-1");
                 toast("Oops, sepertinya ada transaksi baru.", "info");
             } catch (error) {
                 toast("Oops, sepertinya ada kesalahan pada alat.", "error");
@@ -49,7 +49,7 @@ export default {
         },
         async hitSimulasi(ip) {
             try {
-                let res = await axios.get("http://" + ip + "/success");
+                let res = await axios.get("http://" + ip + "/endpoint-1");
                 toast("simulasi alat.", "info");
             } catch (error) {
                 toast("Oops, sepertinya ada kesalahan pada alat.", "error");

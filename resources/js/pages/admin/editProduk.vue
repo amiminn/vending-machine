@@ -67,6 +67,14 @@
                 </div>
             </card>
         </div>
+        <card>
+            <button
+                @click="deleteProduk"
+                class="bg-red-400 py-2 rounded-lg w-full text-white"
+            >
+                Hapus produk
+            </button>
+        </card>
     </layout>
 </template>
 <script>
@@ -93,6 +101,32 @@ export default {
                 );
                 toast(res.data.msg);
             } catch (error) {}
+        },
+        async apiDelete() {
+            let res = await axios.delete(this.$api.produk + "/" + this.id);
+            return res.data.msg;
+        },
+        async deleteProduk() {
+            Swal.fire({
+                title: "Apakah yakin hapus produk?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya,hapus produk!",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    try {
+                        let msg = this.apiDelete();
+                        Swal.fire({
+                            title: "Terhapus!",
+                            text: msg,
+                            icon: "success",
+                        });
+                        window.history.back();
+                    } catch (error) {}
+                }
+            });
         },
     },
     mounted() {

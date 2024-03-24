@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("gambar")->nullable();
             $table->integer("stok")->default(0);
             $table->boolean("status")->default(1);
+            $table->string("endpoint")->nullable();
             $table->timestamps();
         });
     }
