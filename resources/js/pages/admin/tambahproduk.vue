@@ -42,7 +42,7 @@
                         </select>
                     </div>
                 </div>
-                <div>
+                <div class="my-3">
                     <label>deskripsi produk</label>
                     <input
                         type="text"
