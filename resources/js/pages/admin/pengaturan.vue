@@ -30,7 +30,7 @@
                             type="submit"
                             class="py-2 bg-slate-400 rounded-lg text-white"
                         >
-                            cek sekarang
+                            {{ loadingCek }}
                         </button>
                     </div>
                 </card>
@@ -47,6 +47,7 @@ export default {
             dataPengaturan: {
                 ip: "0.0.0.0",
             },
+            loadingCek: "cek sekarang",
         };
     },
     methods: {
@@ -61,8 +62,11 @@ export default {
             );
             toast(res.data.msg);
         },
-        async cekIot() {
-            await axios.get("/api/simulasi");
+        cekIot() {
+            this.loadingCek = "loading";
+            axios.get("/api/simulasi").then(() => {
+                this.loadingCek = "cek sekarang";
+            });
         },
     },
     mounted() {
