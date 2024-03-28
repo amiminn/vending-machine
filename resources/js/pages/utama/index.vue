@@ -1,15 +1,21 @@
 <template lang="">
     <layout>
-        <div class="flex justify-center">
-            <template v-if="kosong">
-                <loading></loading>
+        <swiper
+            :loop="true"
+            :slides-per-view="1"
+            @swiper="onSwiper"
+            @slideChange="onSlideChange"
+        >
+            <template v-for="(d, index) in dataProduk" :key="index">
+                <swiper-slide>
+                    <div class="flex justify-center">
+                        <img :src="d.gambar" alt="produk" class="w-2/4" />
+                    </div>
+                </swiper-slide>
             </template>
-            <template v-if="!kosong">
-                <img :src="produk.gambar" alt="produk" class="w-2/4" />
-            </template>
-        </div>
+        </swiper>
         <div
-            class="container sm:xl:w-1/3 h-1/2 absolute bottom-0 left-0 right-0 m-auto backdrop-blur-md bg-white/60 rounded-t-[42px] p-3 ls"
+            class="z-50 container sm:xl:w-1/3 h-1/2 absolute bottom-0 left-0 right-0 m-auto backdrop-blur-md bg-white/60 rounded-t-[42px] p-3 ls"
         >
             <div class="grid grid-rows-4 h-full text-3xl">
                 <div
@@ -97,12 +103,17 @@
 </template>
 <script>
 import layout from "./layout.vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
 export default {
     components: {
         layout,
+        Swiper,
+        SwiperSlide,
     },
     data() {
         return {
+            swiper: null,
             dataProduk: [],
             produk: {},
             listId: [],
@@ -112,6 +123,13 @@ export default {
         };
     },
     methods: {
+        onSwiper(swiper) {
+            this.swiper = swiper;
+        },
+        onSlideChange(e) {
+            this.index = e.realIndex;
+            this.loadProduk();
+        },
         async bayar() {
             this.loading = true;
             try {
@@ -138,25 +156,10 @@ export default {
             return _.find(this.dataProduk, ["id", id]);
         },
         next() {
-            this.index += 1;
-            if (this.index < this.max()) {
-                this.loadProduk();
-            } else {
-                this.index = 0;
-                this.loadProduk();
-            }
+            this.swiper.slideNext();
         },
         prev() {
-            if (this.index == 0) {
-                this.index = this.max() - 1;
-                this.loadProduk();
-            } else {
-                this.index -= 1;
-                this.loadProduk();
-            }
-        },
-        max() {
-            return this.listId.length;
+            this.swiper.slidePrev();
         },
         loadProduk() {
             this.produk = this.findProduk(this.listId[this.index]);

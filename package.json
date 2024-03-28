@@ -26,6 +26,7 @@
         "laravel-echo": "^1.16.0",
         "lodash": "^4.17.21",
         "pusher-js": "^8.4.0-rc2",
-        "sweetalert2": "^11.10.6"
+        "sweetalert2": "^11.10.6",
+        "swiper": "^11.1.0"
     }
 }
