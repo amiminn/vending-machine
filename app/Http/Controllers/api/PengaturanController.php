@@ -19,7 +19,8 @@ class PengaturanController extends Controller
         try {
             $data = PengaturanModel::first();
             $data->update([
-                "ip" => $request->ip
+                "ip" => $request->ip,
+                "server" => $request->server,
             ]);
             return Response::success("pengaturan berhasil diperbarui.");
         } catch (\Throwable $th) {

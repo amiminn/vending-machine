@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         PengaturanModel::create([
-            "ip" => "127.0.0.1"
+            "ip" => "192.168.132.177",
+            "server" => "fc8d-103-186-91-17.ngrok-free.app"
         ]);
     }
 }

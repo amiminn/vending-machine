@@ -11,6 +11,12 @@
                             class="form-input"
                             v-model="dataPengaturan.ip"
                         />
+                        <label>ngrok address</label>
+                        <input
+                            type="text"
+                            class="form-input"
+                            v-model="dataPengaturan.server"
+                        />
                         <button
                             type="submit"
                             class="py-2 bg-slate-400 rounded-lg text-white"
@@ -46,6 +52,7 @@ export default {
         return {
             dataPengaturan: {
                 ip: "0.0.0.0",
+                server: "fc8d-103-186-91-17.ngrok-free.app",
             },
             loadingCek: "cek sekarang",
         };

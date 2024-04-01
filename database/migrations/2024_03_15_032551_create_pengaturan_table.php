@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pengaturan', function (Blueprint $table) {
             $table->id();
             $table->string("ip")->nullable();
+            $table->string("server")->nullable();
             $table->timestamps();
         });
     }

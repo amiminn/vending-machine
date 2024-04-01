@@ -24,7 +24,7 @@ class TransaksiController extends Controller
         try {
             // cari produk id
             $produk = ProdukModel::find($request->idProduk);
-
+            $pengaturan = PengaturanModel::first();
             // data-pembayaran
             $data = [[
                 "name" => $produk->nama,
@@ -34,7 +34,7 @@ class TransaksiController extends Controller
 
             $callback_url = "";
 
-            $return_url = env("APP_URL") . "/pembayaran-success=" . $produk->id;
+            $return_url = $pengaturan->server . "/pembayaran-success=" . $produk->id;
 
             $response = Tripay::generate("QRIS", $produk->harga, $data, $callback_url, $return_url);
 
