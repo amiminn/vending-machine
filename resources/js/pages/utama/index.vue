@@ -8,8 +8,12 @@
         >
             <template v-for="(d, index) in dataProduk" :key="index">
                 <swiper-slide>
-                    <div class="flex justify-center">
-                        <img :src="d.gambar" alt="produk" class="w-2/4" />
+                    <div class="flex justify-center -my-2">
+                        <img
+                            :src="d.gambar"
+                            alt="produk"
+                            class="w-60 h-[21rem]"
+                        />
                     </div>
                 </swiper-slide>
             </template>

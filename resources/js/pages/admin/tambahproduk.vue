@@ -39,6 +39,7 @@
                         >
                             <option selected disabled>pilih</option>
                             <option value="endpoint-1">servo 1</option>
+                            <option value="endpoint-2">servo 2</option>
                         </select>
                     </div>
                 </div>
