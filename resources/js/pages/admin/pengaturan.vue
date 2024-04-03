@@ -26,11 +26,32 @@
                     </div>
                 </card>
             </form>
+            <div>
+                <card>
+                    <div class="grid gap-3 my-5">
+                        <div class="ls text-slate-600 text-xl text-center">
+                            cek alat IOT
+                        </div>
+                        <button
+                            @click="servo(1)"
+                            class="py-2 bg-slate-400 rounded-lg text-white"
+                        >
+                            servo-1
+                        </button>
+                        <button
+                            @click="servo(2)"
+                            class="py-2 bg-slate-400 rounded-lg text-white"
+                        >
+                            servo-2
+                        </button>
+                    </div>
+                </card>
+            </div>
             <form @submit.prevent="cekIot()">
                 <card>
                     <div class="grid gap-3 my-5">
                         <div class="ls text-slate-600 text-xl text-center">
-                            cek iot response
+                            cek response pembelian
                         </div>
                         <button
                             type="submit"
@@ -74,6 +95,12 @@ export default {
             axios.get("/api/simulasi").then(() => {
                 this.loadingCek = "cek sekarang";
             });
+        },
+        async servo(id) {
+            let getIot = "http://" + this.dataPengaturan.ip + "/endpoint-" + id;
+            try {
+                let res = await axios.get(getIot);
+            } catch (error) {}
         },
     },
     mounted() {
