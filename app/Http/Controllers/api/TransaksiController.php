@@ -34,10 +34,9 @@ class TransaksiController extends Controller
 
             $callback_url = "";
 
-            $return_url = $pengaturan->server . "/pembayaran-success=" . $produk->id;
+            $return_url = "http://" . $pengaturan->server . "/pembayaran-success=" . $produk->id;
 
             $response = Tripay::generate("QRIS", $produk->harga, $data, $callback_url, $return_url);
-
             TransaksiModel::create([
                 "data_produk" => json_encode($response),
                 "produk_id" => $request->idProduk,
