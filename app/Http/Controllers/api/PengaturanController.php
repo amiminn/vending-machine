@@ -20,7 +20,7 @@ class PengaturanController extends Controller
             $data = PengaturanModel::first();
             $data->update([
                 "ip" => $request->ip,
-                "server" => $request->server,
+                "server" => $request->serverNgrok,
             ]);
             return Response::success("pengaturan berhasil diperbarui.");
         } catch (\Throwable $th) {

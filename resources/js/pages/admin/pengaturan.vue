@@ -15,7 +15,7 @@
                         <input
                             type="text"
                             class="form-input"
-                            v-model="dataPengaturan.server"
+                            v-model="dataPengaturan.serverNgrok"
                         />
                         <button
                             type="submit"
@@ -73,7 +73,7 @@ export default {
         return {
             dataPengaturan: {
                 ip: "0.0.0.0",
-                server: "fc8d-103-186-91-17.ngrok-free.app",
+                serverNgrok: "fc8d-103-186-91-17.ngrok-free.app",
             },
             loadingCek: "cek sekarang",
         };
@@ -81,7 +81,8 @@ export default {
     methods: {
         async getDataPengaturan() {
             let res = await axios.get(this.$api.pengaturan);
-            this.dataPengaturan = res.data;
+            this.dataPengaturan.serverNgrok = res.data.server;
+            this.dataPengaturan.ip = res.data.ip;
         },
         async updatePengaturan() {
             let res = await axios.post(
