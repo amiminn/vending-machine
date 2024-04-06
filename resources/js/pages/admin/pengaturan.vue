@@ -101,6 +101,7 @@ export default {
             let getIot = "http://" + this.dataPengaturan.ip + "/endpoint-" + id;
             try {
                 let res = await axios.get(getIot);
+                toast("simulasi servo " + id);
             } catch (error) {}
         },
     },

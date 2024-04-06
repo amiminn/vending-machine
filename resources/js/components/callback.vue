@@ -41,16 +41,8 @@ export default {
         // },
         async hit(ip) {
             try {
-                let res = await axios.get("http://" + ip + "/endpoint-1");
+                let res = await axios.get(ip);
                 toast("Oops, sepertinya ada transaksi baru.", "info");
-            } catch (error) {
-                toast("Oops, sepertinya ada kesalahan pada alat.", "error");
-            }
-        },
-        async hitSimulasi(ip) {
-            try {
-                let res = await axios.get("http://" + ip + "/endpoint-1");
-                toast("simulasi alat.", "info");
             } catch (error) {
                 toast("Oops, sepertinya ada kesalahan pada alat.", "error");
             }
@@ -58,10 +50,7 @@ export default {
     },
     mounted() {
         Echo.channel("transaksi").listen(".transaksi.baru", (e) => {
-            this.hit(e.callback.ip);
-        });
-        Echo.channel("simulasi").listen(".simulasi", (e) => {
-            this.hitSimulasi(e.callback.ip);
+            this.hit(e.callback.hit);
         });
     },
 };

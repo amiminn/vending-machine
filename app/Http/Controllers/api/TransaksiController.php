@@ -22,28 +22,22 @@ class TransaksiController extends Controller
     public function createTransaksi(Request $request)
     {
         try {
-            // cari produk id
             $produk = ProdukModel::find($request->idProduk);
             $pengaturan = PengaturanModel::first();
-            // data-pembayaran
             $data = [[
                 "name" => $produk->nama,
                 "price" => $produk->harga,
                 "quantity" => 1,
             ]];
-
-            $callback_url = "";
-
-            $return_url = "http://" . $pengaturan->server . "/pembayaran-success=" . $produk->id;
-
-            $response = Tripay::generate("QRIS", $produk->harga, $data, $callback_url, $return_url);
+            $uuid = Response::uuid();
+            $return_url = "http://" . $pengaturan->server . "/pembayaran-success=" . $uuid;
+            $response = Tripay::generate("QRIS", $produk->harga, $data, "", $return_url);
             TransaksiModel::create([
                 "data_produk" => json_encode($response),
                 "produk_id" => $request->idProduk,
-                "qr" => Response::uuid(),
+                "qr" => $uuid,
                 "total" => $produk->harga
             ]);
-
             return $response->data->checkout_url;
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -53,22 +47,15 @@ class TransaksiController extends Controller
     public static function callback($id)
     {
         try {
-
-            $produk = ProdukModel::find($id);
-            TransaksiModel::where("produk_id", $id)->update(["status" => 1]);
+            $transaksi = TransaksiModel::where("qr", $id)->first();
+            $produk = ProdukModel::find($transaksi->produk_id);
             $produk->decrement("stok");
+            $transaksi->update(["status" => 1]);
             $ip = PengaturanModel::first()->ip;
-            event(new Pusher("transaksi", "transaksi.baru", compact("ip")));
+            $hit = 'http://' . $ip . '/' . $produk->endpoint;
+            event(new Pusher("transaksi", "transaksi.baru", compact("hit")));
         } catch (\Throwable $th) {
             return redirect()->to("/");
-            // return halaman transaksi gagal, tidak dapat menemukan produk
         }
-    }
-
-    public function simulasi()
-    {
-        $ip = PengaturanModel::first()->ip;
-        event(new Pusher("simulasi", "simulasi", compact("ip")));
-        return PengaturanModel::first()->ip;
     }
 }

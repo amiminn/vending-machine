@@ -42,8 +42,10 @@ export default {
     components: {
         layout,
     },
-    data() {
-        return {};
+    mounted() {
+        setTimeout(() => {
+            router.get("/");
+        }, 5000);
     },
 };
 </script>
