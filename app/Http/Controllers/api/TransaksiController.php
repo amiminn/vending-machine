@@ -35,7 +35,7 @@ class TransaksiController extends Controller
             TransaksiModel::create([
                 "data_produk" => json_encode($response),
                 "produk_id" => $request->idProduk,
-                "qr" => $uuid,
+                "uuid" => $uuid,
                 "total" => $produk->harga
             ]);
             return $response->data->checkout_url;
@@ -47,7 +47,7 @@ class TransaksiController extends Controller
     public static function callback($id)
     {
         try {
-            $transaksi = TransaksiModel::where("qr", $id)->first();
+            $transaksi = TransaksiModel::where("uuid", $id)->first();
             $produk = ProdukModel::find($transaksi->produk_id);
             $produk->decrement("stok");
             $transaksi->update(["status" => 1]);

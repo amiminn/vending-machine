@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger("produk_id");
             $table->json("data_produk")->nullable();
-            $table->text("qr")->nullable();
+            $table->text("uuid")->nullable();
             $table->boolean("status")->default(0);
             $table->integer("total")->default(0);
             $table->timestamps();
