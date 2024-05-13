@@ -21,19 +21,20 @@
         <div
             class="z-50 container sm:xl:w-1/3 h-1/2 absolute bottom-0 left-0 right-0 m-auto backdrop-blur-md bg-white/60 rounded-t-[42px] p-3 ls"
         >
-            <div class="grid grid-rows-4 h-full text-3xl">
+            <div class="grid h-full grid-rows-4 text-3xl">
                 <div
-                    class="flex justify-center items-center text-center text-5xl mt-3 text-slate-600"
+                    class="flex items-center justify-center mt-3 text-5xl text-center text-slate-600"
                 >
                     <template v-if="kosong"></template>
                     <template v-if="!kosong">
                         {{ produk.nama }}
                     </template>
                 </div>
-                <div class="row-span-2 grid items-center">
+                <div class="grid items-center row-span-2">
                     <div class="flex justify-around gap-2 p-2 text-slate-600">
                         <div class="flex items-center justify-start">
                             <div
+                                v-if="!kosong"
                                 class="bg-white rounded-full cursor-pointer"
                                 @click="prev()"
                             >
@@ -45,7 +46,7 @@
                             </div>
                         </div>
                         <div
-                            class="text-slate-600 grid items-center text-center"
+                            class="grid items-center text-center text-slate-600"
                         >
                             <template v-if="kosong">
                                 produk tidak tersedia
@@ -54,7 +55,7 @@
                                 <p>{{ produk.deskripsi }}</p>
                                 <p>
                                     tersedia:
-                                    <span class="text-rose-500 text-5xl">{{
+                                    <span class="text-5xl text-rose-500">{{
                                         produk.stok
                                     }}</span>
                                     item
@@ -63,6 +64,7 @@
                         </div>
                         <div class="flex items-center justify-end">
                             <div
+                                v-if="!kosong"
                                 class="bg-white rounded-full cursor-pointer"
                                 @click="next()"
                             >
@@ -94,7 +96,7 @@
                         <template v-if="!loading">
                             <div
                                 @click="bayar()"
-                                class="rounded-full cursor-pointer bg-white w-24 flex justify-center"
+                                class="flex justify-center w-24 bg-white rounded-full cursor-pointer"
                             >
                                 <img src="/icon/cart.svg" alt="" class="h-16" />
                             </div>
@@ -172,6 +174,7 @@ export default {
     },
     mounted() {
         this.getData();
+        this.next();
     },
 };
 </script>

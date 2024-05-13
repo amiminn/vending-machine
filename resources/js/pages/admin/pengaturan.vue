@@ -47,21 +47,6 @@
                     </div>
                 </card>
             </div>
-            <form @submit.prevent="cekIot()">
-                <card>
-                    <div class="grid gap-3 my-5">
-                        <div class="ls text-slate-600 text-xl text-center">
-                            cek response pembelian
-                        </div>
-                        <button
-                            type="submit"
-                            class="py-2 bg-slate-400 rounded-lg text-white"
-                        >
-                            {{ loadingCek }}
-                        </button>
-                    </div>
-                </card>
-            </form>
         </div>
     </layout>
 </template>
@@ -90,12 +75,6 @@ export default {
                 this.dataPengaturan
             );
             toast(res.data.msg);
-        },
-        cekIot() {
-            this.loadingCek = "loading";
-            axios.get("/api/simulasi").then(() => {
-                this.loadingCek = "cek sekarang";
-            });
         },
         async servo(id) {
             let getIot = "http://" + this.dataPengaturan.ip + "/endpoint-" + id;

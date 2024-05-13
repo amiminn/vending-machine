@@ -16,7 +16,7 @@ class TransaksiController extends Controller
 {
     public function index()
     {
-        return TransaksiModel::get();
+        return TransaksiModel::orderByDesc("id")->get();
     }
 
     public function createTransaksi(Request $request)
