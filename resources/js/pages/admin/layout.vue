@@ -1,12 +1,11 @@
 <template lang="">
     <div class="bg-[#F5F9FC] h-screen">
-        <callback></callback>
         <button
             data-drawer-target="sidebar-multi-level-sidebar"
             data-drawer-toggle="sidebar-multi-level-sidebar"
             aria-controls="sidebar-multi-level-sidebar"
             type="button"
-            class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            class="inline-flex items-center p-2 mt-2 text-sm text-gray-500 rounded-lg ms-3 sm:hidden hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
         >
             <span class="sr-only">Open sidebar</span>
             <img src="/icon/list.svg" class="w-8" alt="" />
@@ -29,7 +28,7 @@
                 <div class="">
                     <ul class="space-y-2 font-medium">
                         <!-- <li
-                            class="flex justify-center font-semibold text-xl text-slate-500 ls"
+                            class="flex justify-center text-xl font-semibold text-slate-500 ls"
                         >
                             Toko
                         </li> -->
@@ -94,12 +93,12 @@
                         </li>
                     </ul>
                     <ul
-                        class="space-y-2 font-medium absolute inset-x-0 bottom-0 p-2"
+                        class="absolute inset-x-0 bottom-0 p-2 space-y-2 font-medium"
                     >
                         <li>
                             <button
                                 @click="logout()"
-                                class="w-full flex items-center font-bold p-2 text-rose-400 rounded-lg bg-rose-100 group"
+                                class="flex items-center w-full p-2 font-bold rounded-lg text-rose-400 bg-rose-100 group"
                             >
                                 <img
                                     src="/icon/dashboard/cancel.svg"
@@ -114,16 +113,22 @@
             </div>
         </aside>
 
-        <div class="p-4 sm:ml-64 grid gap-3">
+        <div class="grid gap-3 p-4 sm:ml-64">
             <slot></slot>
         </div>
     </div>
 </template>
 <script>
-import callback from "../../components/callback.vue";
 export default {
-    components: { callback },
     methods: {
+        async hit(ip) {
+            try {
+                let res = await axios.get(ip);
+                toast("Oops, sepertinya ada transaksi baru.", "info");
+            } catch (error) {
+                toast("Oops, sepertinya ada kesalahan pada alat.", "error");
+            }
+        },
         async logout() {
             Swal.fire({
                 title: "Yakin logout aplikasi?",
@@ -142,6 +147,19 @@ export default {
                 }
             });
         },
+    },
+    mounted() {
+        Echo.channel("transaksi").listen(".transaksi.baru", (e) => {
+            console.log("hit endpoint");
+            axios
+                .get(e.callback.hit)
+                .then(() => {
+                    toast("Oops, sepertinya ada transaksi baru.", "info");
+                })
+                .catch(() => {
+                    toast("Oops, sepertinya ada kesalahan pada alat.", "error");
+                });
+        });
     },
 };
 </script>
