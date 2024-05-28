@@ -2,23 +2,24 @@
     <layout>
         <ha>produk</ha>
         <card>
-            <div class="mb-4 flex justify-end">
+            <div class="flex justify-end mb-4">
                 <Link
                     href="tambah-product"
-                    class="bg-gray-600 text-white px-5 py-2 rounded"
+                    class="px-5 py-2 text-white bg-gray-600 rounded"
                 >
                     tambahkan produk baru
                 </Link>
             </div>
             <div class="overflow-auto rounded">
                 <table class="w-full text-left">
-                    <thead class="bg-gray-600 text-white">
+                    <thead class="text-white bg-gray-600">
                         <tr>
                             <th>no</th>
                             <th>produk</th>
                             <th>gambar</th>
                             <th>stok</th>
                             <th>harga</th>
+                            <th>servo</th>
                             <th>action</th>
                         </tr>
                     </thead>
@@ -32,9 +33,16 @@
                             <td>{{ d.stok }}</td>
                             <td>{{ $filters.harga(d.harga) }}</td>
                             <td>
+                                {{
+                                    d.endpoint == "endpoint-1"
+                                        ? "servo-1"
+                                        : "servo-2"
+                                }}
+                            </td>
+                            <td>
                                 <Link
                                     :href="'/product=' + d.id"
-                                    class="flex items-center font-bold gap-2"
+                                    class="flex items-center gap-2 font-bold"
                                 >
                                     <img
                                         src="/icon/dashboard/edit.svg"
